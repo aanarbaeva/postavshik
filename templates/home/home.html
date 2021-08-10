@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block container %}
+    {% include 'home/slider.html' %}
+    <h3 class="text-center text-decoration-underline mt-3">Все для строительства и ремонта</h3>
+    <ul class="row ps-0 ms-0 list-unstyled mt-5 mb-5">
+        {% for category in categories %}
+            <li class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                <a href="{{category.get_absolute_url}}" class="card h-100 category-title-home">
+                    <div class="card-body">
+                        <h3 class="card-title  fs-4">{{category.name}}</h3>
+                    </div>
+                    <img src="{{category.images.category_images.url}}"class="card-img-top" alt="{{category.description}}">
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+{% endblock container %}
